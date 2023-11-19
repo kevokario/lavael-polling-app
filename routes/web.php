@@ -37,9 +37,13 @@ Route::middleware(['auth','verified'])->group(function(){
             Route::get('/',[PollController::class,'index'])->name('view');
             Route::get('/add',[PollController::class,'viewAdd'])->name('add');
             Route::post('/create',[PollController::class,'create'])->name('create');
+            Route::delete('/delete',[PollController::class,'delete'])->name('delete');
 
-            Route::get('/users',[PollController::class,'viewUsersPoll'])->name('users');
+            Route::get('/votes',[PollController::class,'viewUsersPoll'])->name('users');
+            Route::get('/votes/{id}',[PollController::class,'viewUserPoll'])->name('user');
             Route::get('/{id}',[PollController::class, 'viewSinglePoll'])->name('view.single');
+            Route::get('/{id}/question',[PollController::class,'viewAddQuestion'])->name('add.question');
+            Route::post('/{id}/question',[PollController::class,'createQuestion'])->name('create.question');
         });
 
     });

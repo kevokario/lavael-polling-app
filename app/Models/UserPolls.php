@@ -10,6 +10,8 @@ class UserPolls extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'user',
         'poll_question',

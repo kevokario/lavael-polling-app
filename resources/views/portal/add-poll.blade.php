@@ -21,12 +21,16 @@
                 </div>
             @endisset
 
-            @isset($error)
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Success!</strong> {{$error}}
-                    <button type="button" class="btn-close btn-sm btn" data-coreui-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endisset
+           @isset($errors)
+                    @if(count($errors)>0)
+                        @foreach($errors as $error)
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                    <strong>Error!</strong> {{$error}}
+                                <button type="button" class="btn-close btn-sm btn" data-coreui-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endforeach
+                    @endif
+           @endisset
 
             <form method="post" action="{{route('polls.create')}}">
 

@@ -10,6 +10,7 @@ class PollQuestionOptions extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
     protected $fillable = [
         'poll_question',
         'option'

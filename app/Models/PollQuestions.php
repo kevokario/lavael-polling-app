@@ -11,6 +11,8 @@ class PollQuestions extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'poll',
         'question'
@@ -20,7 +22,7 @@ class PollQuestions extends Model
         return $this->belongsTo(Polls::class);
     }
 
-    public function pollQuestions():HasMany {
-        return $this->hasMany(PollQuestions::class);
+    public function poll_question_options():HasMany {
+        return $this->hasMany(PollQuestionOptions::class,'poll_question','id');
     }
 }
